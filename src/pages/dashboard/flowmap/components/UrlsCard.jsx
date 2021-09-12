@@ -6,16 +6,18 @@ const { RangePicker } = DatePicker;
 const { TabPane } = Tabs;
 const rankingListData = [];
 
-for (let i = 0; i < 7; i += 1) {
-  rankingListData.push({
-    title: `工专路 ${i} 号店`,
-    total: 323234,
-  });
-}
+// for (let i = 0; i < 7; i += 1) {
+//   rankingListData.push({
+//     title: `工专路 ${i} 号店`,
+//     total: 323234,
+//   });
+// }
+
 
 const UrlsCard = ({
   rangePickerValue,
   salesData,
+  servicesData,
   isActive,
   handleRangePickerChange,
   loading,
@@ -60,7 +62,7 @@ const UrlsCard = ({
           marginBottom: 24,
         }}
       >
-        <TabPane tab="销售额" key="sales">
+        <TabPane tab="网关流量" key="sales">
           <Row>
             <Col xl={16} lg={12} md={12} sm={24} xs={24}>
               <div className={styles.salesBar}>
@@ -84,14 +86,14 @@ const UrlsCard = ({
                   }}
                   title={{
                     visible: true,
-                    text: '销售趋势',
+                    text: '流量趋势',
                     style: {
                       fontSize: 14,
                     },
                   }}
                   meta={{
                     y: {
-                      alias: '销售量',
+                      alias: '请求次数',
                     },
                   }}
                 />
@@ -99,9 +101,9 @@ const UrlsCard = ({
             </Col>
             <Col xl={8} lg={12} md={12} sm={24} xs={24}>
               <div className={styles.salesRank}>
-                <h4 className={styles.rankingTitle}>门店销售额排名</h4>
+                <h4 className={styles.rankingTitle}>服务流量排名</h4>
                 <ul className={styles.rankingList}>
-                  {rankingListData.map((item, i) => (
+                  {servicesData.map((item, i) => (
                     <li key={item.title}>
                       <span className={`${styles.rankingItemNumber} ${i < 3 ? styles.active : ''}`}>
                         {i + 1}
@@ -119,7 +121,7 @@ const UrlsCard = ({
             </Col>
           </Row>
         </TabPane>
-        <TabPane tab="访问量" key="views">
+        <TabPane tab="访问UV" key="views">
           <Row>
             <Col xl={16} lg={12} md={12} sm={24} xs={24}>
               <div className={styles.salesBar}>
@@ -143,14 +145,14 @@ const UrlsCard = ({
                   }}
                   title={{
                     visible: true,
-                    text: '访问量趋势',
+                    text: 'UV趋势',
                     style: {
                       fontSize: 14,
                     },
                   }}
                   meta={{
                     y: {
-                      alias: '访问量',
+                      alias: 'UV',
                     },
                   }}
                 />
@@ -158,9 +160,9 @@ const UrlsCard = ({
             </Col>
             <Col xl={8} lg={12} md={12} sm={24} xs={24}>
               <div className={styles.salesRank}>
-                <h4 className={styles.rankingTitle}>门店访问量排名</h4>
+                <h4 className={styles.rankingTitle}>服务流量排名</h4>
                 <ul className={styles.rankingList}>
-                  {rankingListData.map((item, i) => (
+                  {servicesData.map((item, i) => (
                     <li key={item.title}>
                       <span className={`${styles.rankingItemNumber} ${i < 3 ? styles.active : ''}`}>
                         {i + 1}

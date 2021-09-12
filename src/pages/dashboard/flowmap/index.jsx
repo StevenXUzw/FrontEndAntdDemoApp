@@ -8,6 +8,7 @@ import Clock from './components/Clock';
 import ActiveChart from './components/ActiveChart';
 import UrlsCard from './components/UrlsCard';
 import { fakeChartData } from './service';
+import { fakeServiceData } from './service';
 import { getTimeDistance } from './utils/utils';
 import styles from './style.less';
 
@@ -62,7 +63,7 @@ const FlowMap = () => {
             marginBottom: 24,
           }}
         >
-          <Card title="活动实时流量" bordered={false}>
+          <Card title="实时流量" bordered={false}>
             <Row>
               <Col md={6} sm={12} xs={24}>
                 <Statistic
@@ -106,6 +107,7 @@ const FlowMap = () => {
         <UrlsCard
           rangePickerValue={rangePickerValue}
           salesData={data?.salesData || []}
+          servicesData={data?.servicesData || []}
           isActive={isActive}
           handleRangePickerChange={handleRangePickerChange}
           loading={loading}

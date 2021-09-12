@@ -186,6 +186,37 @@ radarOriginData.forEach((item) => {
     }
   });
 });
+
+const servicesData = [
+  {
+      title: `gateway-service`,
+      total: 23234,
+  },
+  {
+      title: `mobileGateway-service`,
+      total: 23234,
+  },
+  {
+      title: `order-service`,
+      total: 23234,
+  },
+  {
+      title: `payment-service`,
+      total: 23234,
+  },
+  {
+      title: `user-service`,
+      total: 23234,
+  },
+  {
+      title: `admin-service`,
+      total: 23234,
+  },
+  {
+      title: `sys-service`,
+      total: 23234,
+  },
+]
 const getFakeChartData = {
   visitData,
   visitData2,
@@ -197,6 +228,7 @@ const getFakeChartData = {
   salesTypeDataOnline,
   salesTypeDataOffline,
   radarData,
+  servicesData,
 };
 
 const fakeChartData = (_, res) => {
